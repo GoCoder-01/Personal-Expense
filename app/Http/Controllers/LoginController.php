@@ -210,6 +210,20 @@ class LoginController extends Controller
         return $token;
     }
 
+    public function logout(Request $request)
+    {
+        $user_id = session('user_id');
+        $token = session('token');
+
+        UserToken::where('user_id', $user_id)
+            ->where('token', $token)
+            ->update(['token_status' => '0']);
+
+        session()->flush();
+
+        return redirect('/login');
+    }
+
     public function commonError($messege)
     {
         return response()->json([
