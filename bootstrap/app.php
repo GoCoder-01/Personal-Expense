@@ -14,13 +14,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        $middleware->append(AuthTokenMiddleware::class);
-
+        
         $middleware->alias([
             'auth' => AuthTokenMiddleware::class,
         ]);
-
-        $middleware->group('auth', [AuthTokenMiddleware::class]);
+        
     })
     ->withExceptions(function (Exceptions $exceptions): void {
 
