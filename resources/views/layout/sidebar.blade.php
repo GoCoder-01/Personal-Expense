@@ -107,6 +107,11 @@
                     <div class="collapse" id="setting">
                         <ul class="nav nav-collapse">
                             <li>
+                                <a href="{{route('financial-year.index')}}">
+                                    <span class="sub-item">Financial Year</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="#">
                                     <span class="sub-item">Head</span>
                                 </a>

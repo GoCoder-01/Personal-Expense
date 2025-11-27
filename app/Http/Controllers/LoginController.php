@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Cache;
 use App\Models\User;
 use App\Models\OTPData;
 use App\Models\UserToken;
+use App\Models\FinancialYear;
 
 class LoginController extends Controller
 {
@@ -151,9 +152,11 @@ class LoginController extends Controller
             return $this->commonError('Internal Server Error');
         }
 
+        // $financialYear = FinancialYear::where('is_running_year', '=', '1')->first();
+
+        // session()->put('financial_year_id', $financialYear->id);
         session()->put('user_id', $user->id);
-        session()->put('name', $user->name);
-        session()->put('photo_path', $user->profile);
+        session()->put('profile', $user->profile);
         session()->put('token', $token);
 
         $DataOUT = (Object)array(

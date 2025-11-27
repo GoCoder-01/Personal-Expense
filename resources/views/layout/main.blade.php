@@ -7,12 +7,13 @@
   </head>
   <body>
     <div class="wrapper">
-        @include('layout.sidebar')
-        <div class="main-panel">
-            @include('layout.topbar')
-            @yield('main-content')
-            @include('layout.footer')
+      @include('layout.sidebar')
+      <div class="main-panel">
+        @include('layout.topbar')
+        <div class="main-content-container">
+          @yield('main-content')
         </div>
+      </div>
     </div>
     <!--   Core JS Files   -->
     <script src="{{ asset('assets/js/core/jquery-3.7.1.min.js') }} "></script>
@@ -49,6 +50,6 @@
 
     <!-- Kaiadmin JS -->
     <script src="assets/js/kaiadmin.min.js"></script>
-    @yield('script')
+    @stack('scripts')
   </body>
 </html>
